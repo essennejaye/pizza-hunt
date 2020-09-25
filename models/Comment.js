@@ -9,10 +9,13 @@ const ReplySchema = new Schema(
       default: () => new Types.ObjectId()
     },
     replyBody: {
-      type: String
+      type: String, 
+      required: 'You must provide a reply!',
+      trim: true
     },
     writtenBy: {
-      type: String
+      type: String,
+      required: 'You must leave a name'
     },
     createdAt: {
       type: Date,
@@ -29,10 +32,13 @@ const ReplySchema = new Schema(
 
 const CommentSchema = new Schema({
   writtenBy: {
-    type: String
+    type: String,
+    required: 'You must leave a name'
   },
   commentBody: {
-    type: String
+    type: String,
+    required: 'You must provide a comment!',
+    trim: true
   },
   createdAt: {
     type: Date,
